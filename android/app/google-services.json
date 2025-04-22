@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1030237070324",
+    "project_id": "projet-flutter-gestion-garage",
+    "storage_bucket": "projet-flutter-gestion-garage.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030237070324:android:de9e78f7a3c48318f94fa1",
+        "android_client_info": {
+          "package_name": "com.example.projet_flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgrSAerpDNknbziem9QcQpRPlNYudkBMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
