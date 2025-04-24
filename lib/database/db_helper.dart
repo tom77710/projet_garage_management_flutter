@@ -36,8 +36,9 @@ class DBHelper {
     final path = join(dbPath, filePath);
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _createDB,
+      onUpgrade: _upgradeDB,
     );
   }
 
@@ -49,7 +50,9 @@ class DBHelper {
         prenom TEXT,
         telephone TEXT,
         email TEXT,
-        adresse TEXT
+        adresse TEXT,
+        isSynced INTEGER,
+        lastModified TEXT
       )
     ''');
 
@@ -60,7 +63,9 @@ class DBHelper {
         marque TEXT,
         modele TEXT,
         etat TEXT,
-        clientId TEXT
+        clientId TEXT,
+        isSynced INTEGER,
+        lastModified TEXT
       )
     ''');
 
@@ -69,9 +74,24 @@ class DBHelper {
         id TEXT PRIMARY KEY,
         nom TEXT,
         prenom TEXT,
-        role TEXT
+        role TEXT,
+        isSynced INTEGER,
+        lastModified TEXT
       )
     ''');
+  }
+
+  Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await db.execute("ALTER TABLE clients ADD COLUMN isSynced INTEGER DEFAULT 0");
+      await db.execute("ALTER TABLE clients ADD COLUMN lastModified TEXT DEFAULT ''");
+
+      await db.execute("ALTER TABLE cars ADD COLUMN isSynced INTEGER DEFAULT 0");
+      await db.execute("ALTER TABLE cars ADD COLUMN lastModified TEXT DEFAULT ''");
+
+      await db.execute("ALTER TABLE employes ADD COLUMN isSynced INTEGER DEFAULT 0");
+      await db.execute("ALTER TABLE employes ADD COLUMN lastModified TEXT DEFAULT ''");
+    }
   }
 
   // ----------- Clients -----------
@@ -140,7 +160,7 @@ class DBHelper {
   // ----------- Employés -----------
   Future<void> insertEmploye(Employe employe) async {
     final db = await database;
-    print("Insertion dans SQLite : ${employe.toMap()}");
+    print("Insertion dans SQLite : \${employe.toMap()}");
     await db.insert('employes', employe.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
   }
 

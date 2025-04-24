@@ -4,7 +4,9 @@ class Car {
   final String marque;
   final String modele;
   final String etat;
-  final String clientId; // IMPORTANT
+  final String clientId;
+  final bool isSynced;
+  final String lastModified;
 
   Car({
     this.id,
@@ -13,6 +15,8 @@ class Car {
     required this.modele,
     required this.etat,
     required this.clientId,
+    this.isSynced = false,
+    required this.lastModified,
   });
 
   Map<String, dynamic> toMap() {
@@ -23,6 +27,8 @@ class Car {
       'modele': modele,
       'etat': etat,
       'clientId': clientId,
+      'isSynced': isSynced ? 1 : 0,
+      'lastModified': lastModified,
     };
   }
 
@@ -34,6 +40,8 @@ class Car {
       modele: map['modele'],
       etat: map['etat'],
       clientId: map['clientId'],
+      isSynced: map['isSynced'] == 1,
+      lastModified: map['lastModified'],
     );
   }
 }

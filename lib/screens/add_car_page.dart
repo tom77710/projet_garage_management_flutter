@@ -59,6 +59,7 @@ class _AddCarPageState extends State<AddCarPage> {
         modele: _modeleController.text,
         etat: _selectedEtat ?? '',
         clientId: _selectedClient!.id,
+        lastModified: DateTime.now().toIso8601String(),
       );
       await DBHelper.instance.insertCar(car);
       Navigator.pop(context, true);

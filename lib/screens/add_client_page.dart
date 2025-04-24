@@ -38,6 +38,7 @@ class _AddClientPageState extends State<AddClientPage> {
         telephone: _telephoneController.text,
         email: _emailController.text,
         adresse: _adresseController.text,
+        lastModified: DateTime.now().toIso8601String(),
       );
       await db.insertClient(client);
       Navigator.pop(context, true);

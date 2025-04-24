@@ -1,4 +1,3 @@
-
 class Client {
   final String id;
   final String nom;
@@ -6,6 +5,8 @@ class Client {
   final String telephone;
   final String email;
   final String? adresse;
+  final bool isSynced;
+  final String lastModified;
 
   Client({
     required this.id,
@@ -14,6 +15,8 @@ class Client {
     required this.telephone,
     required this.email,
     this.adresse,
+    this.isSynced = false,
+    required this.lastModified,
   });
 
   Map<String, dynamic> toMap() {
@@ -24,6 +27,8 @@ class Client {
       'telephone': telephone,
       'email': email,
       'adresse': adresse,
+      'isSynced': isSynced ? 1 : 0,
+      'lastModified': lastModified,
     };
   }
 
@@ -35,6 +40,8 @@ class Client {
       telephone: map['telephone'],
       email: map['email'],
       adresse: map['adresse'],
+      isSynced: map['isSynced'] == 1,
+      lastModified: map['lastModified'],
     );
   }
 }

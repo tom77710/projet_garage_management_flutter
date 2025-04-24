@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="default_web_client_id" translatable="false">default_web_client_id</string>
+    <string name="firebase_database_url" translatable="false">https://projet-flutter-gestion-garage.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1030237070324</string>
+    <string name="google_api_key" translatable="false">AIzaSyBgrSAerpDNknbziem9QcQpRPlNYudkBMw</string>
+    <string name="google_app_id" translatable="false">1:1030237070324:android:de9e78f7a3c48318f94fa1</string>
+    <string name="project_id" translatable="false">projet-flutter-gestion-garage</string>
     <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <!-- Show a splash screen on the activity. Automatically removed when

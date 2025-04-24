@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import '../services/firebase_sync_service.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    _syncAutomatically();
+  }
+
+  Future<void> _syncAutomatically() async {
+    await FirebaseSyncService().syncAll();
+    // Tu peux aussi logger si besoin : print('Sync auto terminée');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +86,15 @@ class HomePage extends StatelessWidget {
             child: _buildTile(Icons.people_alt, "Liste des employés"),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await FirebaseSyncService().syncAll();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Synchronisation terminée')),
+          );
+        },
+        child: const Icon(Icons.sync),
       ),
     );
   }

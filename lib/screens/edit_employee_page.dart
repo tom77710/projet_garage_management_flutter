@@ -37,6 +37,7 @@ class _EditEmployeePageState extends State<EditEmployeePage> {
       nom: _nomController.text,
       prenom: _prenomController.text,
       role: _selectedRole!,
+      lastModified: DateTime.now().toIso8601String(),
     );
     await DBHelper.instance.updateEmploye(updated);
     Navigator.pop(context, true);

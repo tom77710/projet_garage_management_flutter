@@ -1,0 +1,60 @@
+# === Fichiers/dossiers Flutter à ignorer ===
+.dart_tool/
+.packages
+.pub/
+build/
+.melos_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# === Configuration spécifique à l'environnement ===
+pubspec.lock
+
+# === Dossiers de build iOS/Android ===
+ios/Flutter/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/.symlinks/
+ios/Podfile.lock
+
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+
+macos/Pods/
+macos/.symlinks/
+macos/Podfile.lock
+macos/Flutter/
+
+windows/build/
+linux/build/
+
+# === IDEs et éditeurs ===
+.idea/
+.vscode/
+*.iml
+
+# === Fichiers temporaires et autres ===
+*.log
+*.lock
+*.tmp
+*.swp
+.DS_Store
+*.orig
+*.bak
+
+# === Fichiers sensibles potentiels ===
+.env
+firebase_options.dart
+firebase-debug.log
+
+# === Rapports de couverture (tests) ===
+coverage/
+
+# === Icônes ou ressources auto-générées (si besoin) ===
+# Tu peux commenter cette ligne si tu veux versionner ton app_icon
+# assets/icon/app_icon.png
+
+# === Fichiers générés susceptibles de poser problème (ex: trop longs) ===
+**/build/cloud_firestore/intermediates/**

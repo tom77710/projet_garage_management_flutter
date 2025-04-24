@@ -23,6 +23,7 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
         nom: _nomController.text,
         prenom: _prenomController.text,
         role: _selectedRole!,
+        lastModified: DateTime.now().toIso8601String(),
       );
       print("Employé enregistré : ${employe.nom} ${employe.prenom}, rôle : ${employe.role.name}");
       await DBHelper.instance.insertEmploye(employe);

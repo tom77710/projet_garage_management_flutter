@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projet_flutter_app-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.projet_flutter_app-mergeDebugResources-28:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\menin\\Documents\\_Projet\\projet_flutter_APP\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\menin\\Documents\\_Projet\\projet_garage_management_flutter\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

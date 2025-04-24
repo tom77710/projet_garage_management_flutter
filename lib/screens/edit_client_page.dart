@@ -47,6 +47,7 @@ class _EditClientPageState extends State<EditClientPage> {
       telephone: _telephoneController.text,
       email: _emailController.text,
       adresse: _adresseController.text,
+      lastModified: DateTime.now().toIso8601String(),
     );
     await DBHelper.instance.updateClient(updatedClient);
     Navigator.pop(context, true);
